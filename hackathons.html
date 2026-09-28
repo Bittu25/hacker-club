@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hackathons — Hacker Club</title>
+  <meta name="description" content="Online hackathons on Hacker Club. Team up with builders worldwide, ship in 48 hours and win prizes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+</head>
+<body data-page="hackathons">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumbs"><a href="index.html">home</a><span>/</span>hackathons</p>
+        <h1>Online hackathons</h1>
+        <p class="sub">Pick a theme, form a team with builders from around the world and ship something real in a weekend. Everything happens online — kickoff, mentoring, demos and judging.</p>
+      </div>
+    </section>
+
+    <section class="section sm">
+      <div class="container">
+        <div id="feature"></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+          <div class="chips" id="themeChips"></div>
+          <label class="search" style="min-width:240px"><input class="input" id="q" type="search" placeholder="Search hackathons…" aria-label="Search hackathons" /></label>
+        </div>
+        <div class="results-bar"><span id="count"></span></div>
+        <div class="hack-grid" id="grid"></div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <p class="eyebrow center">// hackathon_flow</p>
+        <h2 class="center">How a Hacker Club hackathon works</h2>
+        <div class="steps">
+          <div class="step"><span class="num">01</span><h3>Register &amp; team up</h3><p>Join solo or with a team. Use the team finder to meet people with complementary skills.</p></div>
+          <div class="step"><span class="num">02</span><h3>Kickoff</h3><p>Themes and tracks go live. Watch the kickoff stream, then start building immediately.</p></div>
+          <div class="step"><span class="num">03</span><h3>Build with mentors</h3><p>Mentors hold open office hours throughout. Ship updates to your project page as you go.</p></div>
+          <div class="step"><span class="num">04</span><h3>Demo &amp; judging</h3><p>Submit a repo, a 3‑minute demo video and a pitch. Judges score on impact, execution and creativity.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-box">
+        <h2>Want to host your own hackathon?</h2>
+        <p>Run a branded, fully online hackathon for your company, community or university.</p>
+        <a class="btn btn-primary btn-lg" href="pricing.html#host">Host with Hacker Club</a>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+  (function () {
+    const { $, $$, esc, money } = HC;
+    let theme = "All", q = "";
+    const themes = ["All", ...new Set(HC.hackathons.map((h) => h.theme))];
+    $("#themeChips").innerHTML = themes.map((t) => `<button class="chip ${t === "All" ? "active" : ""}" data-theme="${esc(t)}">${esc(t)}</button>`).join("");
+
+    function feature() {
+      const h = HC.hackathons.filter((x) => HC.status(x).state !== "ended").sort((a, b) => a.start - b.start)[0];
+      $("#feature").innerHTML = `
+        <div class="hack-feature">
+          <div class="art" style="background:${h.gradient}">
+            <span class="theme-tag" style="align-self:flex-start;margin-bottom:auto">★ Featured · ${esc(h.theme)}</span>
+            <h2>${esc(h.title)}</h2>
+            <p style="max-width:460px">${esc(h.tagline)}</p>
+          </div>
+          <div class="info">
+            <p class="mono muted" style="font-size:.82rem">// kickoff in</p>
+            <div class="big-countdown" data-cd-blocks="${h.start}"></div>
+            <div class="meta">
+              <div class="prize"><small>Prize pool</small><b>${money(h.prize)}</b></div>
+              <div><small>Teams registered</small><b>${h.teams + (HC.isRegistered(h.id) ? 1 : 0)}</b></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">${HC.actionBtn(h, "hackathon", "btn-lg")}<a class="btn btn-outline btn-lg" href="hackathon.html?id=${h.id}">Details</a></div>
+          </div>
+        </div>`;
+    }
+    function render() {
+      const list = HC.hackathons.filter((h) => (theme === "All" || h.theme === theme) && (!q || (h.title + h.tagline + h.tags.join(" ")).toLowerCase().includes(q)));
+      $("#count").innerHTML = `Showing <b style="color:var(--text)">${list.length}</b> hackathon${list.length === 1 ? "" : "s"}`;
+      $("#grid").innerHTML = list.map(HC.hackCard).join("") || `<div class="empty" style="grid-column:1/-1"><span class="icon">∅</span>No hackathons match.</div>`;
+      feature();
+    }
+    $("#themeChips").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-theme]"); if (!b) return;
+      theme = b.dataset.theme; $$("#themeChips .chip").forEach((x) => x.classList.toggle("active", x === b)); render();
+    });
+    $("#q").addEventListener("input", (e) => { q = e.target.value.toLowerCase(); render(); });
+    document.addEventListener("hc:change", render);
+    render();
+    HC.reveal(".step");
+  })();
+  </script>
+</body>
+</html>

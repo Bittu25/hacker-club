@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hacker Club — Compete. Build. Win.</title>
+  <meta name="description" content="Hacker Club hosts global coding competitions and online hackathons with real cash prizes. Code in the browser, compete with developers worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+</head>
+<body data-page="home">
+  <header id="site-header"></header>
+  <div class="ticker">
+    <div class="container ticker-inner">
+      <span class="ticker-label"><span class="dot live"></span>LIVE</span>
+      <span class="ticker-msg" id="tickerMsg">Loading activity…</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill"><span class="dot live"></span> Season 1 is live · hackers from 120+ countries</div>
+          <h1>Compete. Build. <span class="glitch" data-text="Win.">Win.</span></h1>
+          <p class="lead">Hacker Club is the global arena for coding competitions and online hackathons. Code right in your browser, get judged instantly, and win real cash prizes.</p>
+          <div class="hero-cta">
+            <a href="contests.html" class="btn btn-primary btn-lg">Browse contests →</a>
+            <a href="arena.html" class="btn btn-outline btn-lg">Try the arena free</a>
+          </div>
+          <div class="stats">
+            <div><strong data-count="48000">0</strong><span>Hackers</span></div>
+            <div><strong data-count="250000" data-prefix="$">0</strong><span>Prizes paid</span></div>
+            <div><strong data-count="320">0</strong><span>Events hosted</span></div>
+          </div>
+        </div>
+        <div class="terminal" aria-label="Code editor preview">
+          <div class="term-bar">
+            <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+            <span class="term-title">arena://weekly-sprint-42/solution.py</span>
+          </div>
+          <pre class="term-body"><code id="typed"></code><span class="caret">▋</span></pre>
+          <div class="term-foot">
+            <span class="ok" id="verdict">● Running tests…</span>
+            <span class="muted">Python 3.12 · 0.04s · 12.1 MB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="container strip-inner">
+        <span>Code in</span>
+        <b>Python</b><b>JavaScript</b><b>C++</b><b>Java</b><b>Go</b><b>Rust</b><b>TypeScript</b><b>C#</b><b>Kotlin</b><b>Swift</b><b>+ 30 more</b>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="section sm" style="padding-top:64px">
+      <div class="container" id="featured"></div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">// categories</p>
+            <h2>Pick your battlefield</h2>
+            <p class="sub">From classic algorithms to capture-the-flag, there's a competition for every kind of builder.</p>
+          </div>
+          <a href="contests.html" class="link-arrow">All contests →</a>
+        </div>
+        <div class="cat-grid" id="catGrid"></div>
+      </div>
+    </section>
+
+    <!-- CONTESTS -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">// coding_competitions</p>
+            <h2>Upcoming contests</h2>
+            <p class="sub">Timed challenges with hidden tests and a live leaderboard. All times shown in <b id="tzName">your local time</b>.</p>
+          </div>
+          <a href="contests.html" class="link-arrow">View all contests →</a>
+        </div>
+        <div class="cards" id="contestCards"></div>
+      </div>
+    </section>
+
+    <!-- HACKATHONS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">// hackathons</p>
+            <h2>Online hackathons</h2>
+            <p class="sub">Team up with builders around the world, ship a project in 48 hours and pitch it to judges — fully online.</p>
+          </div>
+          <a href="hackathons.html" class="link-arrow">View all hackathons →</a>
+        </div>
+        <div class="hack-grid" id="hackCards"></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section alt">
+      <div class="container">
+        <p class="eyebrow center">// how_it_works</p>
+        <h2 class="center">From sign-up to payout in 4 steps</h2>
+        <div class="steps">
+          <div class="step"><span class="num">01</span><h3>Create your profile</h3><p>Sign up in seconds. Pick your languages, country and skill level.</p></div>
+          <div class="step"><span class="num">02</span><h3>Register for an event</h3><p>Choose a contest or hackathon and pay a small entry fee that funds the prize pool.</p></div>
+          <div class="step"><span class="num">03</span><h3>Code in the arena</h3><p>Solve problems in our in‑browser editor. Every submission is judged against hidden tests instantly.</p></div>
+          <div class="step"><span class="num">04</span><h3>Win &amp; get paid</h3><p>Top ranks win cash prizes, paid worldwide within 7 days, plus rating points and badges.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow center">// why_hacker_club</p>
+        <h2 class="center">Built for serious competitors</h2>
+        <div class="features">
+          <div class="feature"><div class="ficon">⌨</div><h3>In‑browser IDE</h3><p>Syntax highlighting, keyboard shortcuts and 40+ languages. Nothing to install.</p></div>
+          <div class="feature"><div class="ficon">⚡</div><h3>Instant judging</h3><p>Sandboxed execution with hidden test cases and verdicts in milliseconds.</p></div>
+          <div class="feature"><div class="ficon">⛨</div><h3>Fair play</h3><p>Plagiarism detection, optional proctoring and manual review of every winning entry.</p></div>
+          <div class="feature"><div class="ficon">🌍</div><h3>Truly global</h3><p>Events scheduled across time zones, with payouts to 150+ countries.</p></div>
+          <div class="feature"><div class="ficon">👥</div><h3>Team hackathons</h3><p>Find teammates, then submit your demo, repo and pitch in one place.</p></div>
+          <div class="feature"><div class="ficon">★</div><h3>Rating &amp; badges</h3><p>An Elo‑style rating, public profile and verified certificates to share with employers.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD PREVIEW -->
+    <section class="section alt">
+      <div class="container lb-grid">
+        <div>
+          <p class="eyebrow">// global_leaderboard</p>
+          <h2>Top hackers this season</h2>
+          <p class="sub" style="margin-bottom:26px">Every contest updates your rating. Climb from Newbie to Legend and get noticed by top tech companies.</p>
+          <div class="chips" style="margin-bottom:26px" id="tierChips"></div>
+          <a href="leaderboard.html" class="btn btn-primary">Full leaderboard →</a>
+        </div>
+        <div class="table-wrap">
+          <table class="lb">
+            <thead><tr><th>#</th><th>Hacker</th><th>Country</th><th>Rating</th><th>Winnings</th></tr></thead>
+            <tbody id="lbBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING TEASER -->
+    <section class="section">
+      <div class="container">
+        <div class="featured-event" style="grid-template-columns:1.4fr 1fr">
+          <div>
+            <p class="eyebrow">// hacker_pro</p>
+            <h2>Compete every week for $19/month</h2>
+            <p class="muted">Unlimited coding contests, 50% off every hackathon, the full practice archive and editorials. Cancel anytime.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end">
+            <a href="pricing.html" class="btn btn-primary btn-lg">See pricing</a>
+            <a href="pricing.html#host" class="btn btn-outline btn-lg">Host an event</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt">
+      <div class="narrow">
+        <p class="eyebrow center">// faq</p>
+        <h2 class="center">Frequently asked questions</h2>
+        <div class="faq" id="faq"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container cta-box">
+        <h2>Ready to prove your skills?</h2>
+        <p>Get notified about new contests, hackathons and prize drops.</p>
+        <form class="newsletter" data-newsletter>
+          <input type="email" required placeholder="you@example.com" aria-label="Email address" />
+          <button class="btn btn-primary" type="submit">Get event alerts</button>
+        </form>
+        <p class="form-msg"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

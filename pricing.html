@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Hacker Club</title>
+  <meta name="description" content="Hacker Club pricing: pay per event, go Pro for unlimited contests, or host your own hackathon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+</head>
+<body data-page="pricing">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-hero">
+      <div class="container center">
+        <p class="crumbs"><a href="index.html">home</a><span>/</span>pricing</p>
+        <h1>Simple, transparent pricing</h1>
+        <p class="sub center">Pay per event, or go Pro and join unlimited contests. Every entry fee helps fund the prize pools. Prices in USD.</p>
+        <div class="billing-toggle">
+          <span>Monthly</span>
+          <label class="switch"><input type="checkbox" id="billing" aria-label="Yearly billing" /><span class="slider"></span></label>
+          <span>Yearly <em class="save">save 20%</em></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sm">
+      <div class="container">
+        <div class="pricing">
+          <div class="plan">
+            <h3>Pay per event</h3>
+            <p class="price"><span class="amt">$5</span><span class="per">– $25 / event</span></p>
+            <p class="plan-desc">Perfect if you only compete occasionally.</p>
+            <ul>
+              <li>Entry to any single event</li>
+              <li>Eligible for cash prizes</li>
+              <li>Public profile &amp; rating</li>
+              <li>Free practice arena</li>
+              <li>Digital certificate</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="contests.html">Browse events</a>
+          </div>
+          <div class="plan featured">
+            <div class="ribbon">Most popular</div>
+            <h3>Hacker Pro</h3>
+            <p class="price"><span class="amt" id="proPrice">$19</span><span class="per" id="proPer">/ month</span></p>
+            <p class="plan-desc" id="proNote">For regulars who want to compete every week.</p>
+            <ul>
+              <li>Unlimited coding contests</li>
+              <li>50% off hackathon entry</li>
+              <li>Full practice archive &amp; editorials</li>
+              <li>Advanced stats &amp; submission replays</li>
+              <li>Pro badge on your profile</li>
+              <li>Priority support</li>
+            </ul>
+            <button class="btn btn-primary btn-block" id="goPro">Go Pro</button>
+          </div>
+          <div class="plan">
+            <h3>Teams &amp; Companies</h3>
+            <p class="price"><span class="amt">Custom</span></p>
+            <p class="plan-desc">Host a branded hackathon or hiring challenge.</p>
+            <ul>
+              <li>Private or public sponsored events</li>
+              <li>Custom problems &amp; judging panels</li>
+              <li>Candidate insights &amp; exports</li>
+              <li>Your branding on every page</li>
+              <li>Dedicated event manager</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="#host">Talk to us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <p class="eyebrow center">// compare_plans</p>
+        <h2 class="center" style="margin-bottom:36px">Compare plans</h2>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr><th>Feature</th><th>Pay per event</th><th class="hl">Hacker Pro</th><th>Teams</th></tr></thead>
+            <tbody id="compare"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow center">// prize_pool_calculator</p>
+        <h2 class="center">Where does your entry fee go?</h2>
+        <p class="sub center" style="margin-bottom:40px">Most of every entry fee goes straight into the prize pool. Move the sliders to see how a contest's prize pool grows with participation.</p>
+        <div class="calc panel" style="padding:32px">
+          <div>
+            <div class="range-field"><label>Participants <b id="vP"></b></label><input type="range" id="rP" min="50" max="10000" step="50" value="1500" /></div>
+            <div class="range-field"><label>Entry fee <b id="vF"></b></label><input type="range" id="rF" min="1" max="50" step="1" value="10" /></div>
+            <div class="range-field"><label>Share to prize pool <b id="vS"></b></label><input type="range" id="rS" min="50" max="90" step="5" value="70" /></div>
+            <p class="muted" style="font-size:.82rem">Example split only — the exact share for each event is shown on its page.</p>
+          </div>
+          <div class="pool-out">
+            <p class="muted mono" style="font-size:.82rem">// prize pool</p>
+            <div class="big" id="pool">$0</div>
+            <p class="muted" style="font-size:.88rem" id="poolSplit"></p>
+            <div class="split" id="split"><span></span><span></span><span></span></div>
+            <div class="legend"><span><i style="background:var(--amber)"></i>Prize pool</span><span><i style="background:var(--cyan)"></i>Platform &amp; judging</span><span><i style="background:var(--purple)"></i>Payments &amp; infra</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="host">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">// host_an_event</p>
+          <h2>Host your hackathon with Hacker Club</h2>
+          <p class="sub" style="margin-bottom:24px">Companies, communities and universities use Hacker Club to run online hackathons and hiring challenges for a global audience.</p>
+          <div class="list">
+            <div class="list-item"><span>⚡ Launch an event in days, not months</span></div>
+            <div class="list-item"><span>🌍 Reach developers in 120+ countries</span></div>
+            <div class="list-item"><span>⚖ Built-in judging, scoring &amp; fair-play review</span></div>
+            <div class="list-item"><span>💸 We handle registrations and prize payouts</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Tell us about your event</h3>
+          <form id="hostForm" class="form-grid">
+            <div class="form-row">
+              <label class="field">Your name<input name="name" required /></label>
+              <label class="field">Work email<input name="email" type="email" required /></label>
+            </div>
+            <div class="form-row">
+              <label class="field">Organisation<input name="org" required /></label>
+              <label class="field">Event type<select name="type"><option>Public hackathon</option><option>Private / internal hackathon</option><option>Hiring challenge</option><option>University event</option></select></label>
+            </div>
+            <label class="field">Expected participants<select name="size"><option>Under 100</option><option>100 – 500</option><option>500 – 2,000</option><option>2,000+</option></select></label>
+            <label class="field">Anything else?<textarea name="msg" placeholder="Dates, themes, prize budget…"></textarea></label>
+            <button class="btn btn-primary" type="submit">Send enquiry</button>
+            <p class="form-msg" id="hostMsg"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <p class="eyebrow center">// billing_faq</p>
+        <h2 class="center">Billing questions</h2>
+        <div class="faq">
+          <details><summary>Can I cancel Pro anytime?</summary><p>Yes. You keep Pro benefits until the end of your billing period, and you won't be charged again.</p></details>
+          <details><summary>Which payment methods do you accept?</summary><p>Major credit and debit cards, plus local payment methods in many countries. All payments are processed by a secure payment provider — we never store card details.</p></details>
+          <details><summary>Do you offer student discounts?</summary><p>Yes — verified students get 40% off Hacker Pro. Contact us with your student email to apply.</p></details>
+          <details><summary>What happens to my entry fee if an event is cancelled?</summary><p>You get a full refund automatically, usually within 5–10 business days.</p></details>
+          <details><summary>Are prices shown with tax?</summary><p>Prices are shown in USD before any local taxes, which are calculated at checkout based on your country.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+  (function () {
+    const { $, money } = HC;
+    let yearly = false;
+
+    // Comparison table
+    const Y = '<span class="yes">✓</span>', N = '<span class="no">—</span>';
+    const rows = [
+      ["Competing"],
+      ["Coding contests", "Pay each", "Unlimited", "Private events"],
+      ["Hackathon entry", "Full price", "50% off", "Custom"],
+      ["Cash prize eligibility", Y, Y, Y],
+      ["Practice"],
+      ["Practice arena", Y, Y, Y],
+      ["Full problem archive", N, Y, Y],
+      ["Editorials & video solutions", N, Y, Y],
+      ["Profile"],
+      ["Rating & public profile", Y, Y, Y],
+      ["Advanced stats & replays", N, Y, Y],
+      ["Pro badge", N, Y, N],
+      ["For organisers"],
+      ["Host branded events", N, N, Y],
+      ["Custom judging & problems", N, N, Y],
+      ["Candidate insights", N, N, Y],
+    ];
+    $("#compare").innerHTML = rows.map((r) => r.length === 1 ? `<tr class="group"><td colspan="4">// ${r[0].toLowerCase()}</td></tr>` : `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="hl">${r[2]}</td><td>${r[3]}</td></tr>`).join("");
+
+    function renderPro() {
+      const u = HC.user();
+      $("#proPrice").textContent = yearly ? "$15" : "$19";
+      $("#proPer").textContent = yearly ? "/ month, billed $180/yr" : "/ month";
+      const btn = $("#goPro");
+      if (u?.plan === "pro") { btn.textContent = "✓ You're on Pro"; btn.className = "btn btn-success btn-block"; }
+      else { btn.textContent = "Go Pro"; btn.className = "btn btn-primary btn-block"; }
+    }
+    $("#billing").addEventListener("change", (e) => { yearly = e.target.checked; renderPro(); });
+
+    $("#goPro").addEventListener("click", () => HC.requireUser(() => {
+      const u = HC.user();
+      if (u.plan === "pro") {
+        if (confirm("Cancel Hacker Pro? (demo)")) { HC.store.set("user", { ...u, plan: "free" }); HC.toast("Pro cancelled.", "info"); location.reload(); }
+        return;
+      }
+      const price = yearly ? 180 : 19;
+      HC.openModal(`
+        <p class="eyebrow">// upgrade</p><h3>Hacker Pro</h3>
+        <p class="muted">${yearly ? "Yearly plan — $15/month billed annually" : "Monthly plan — cancel anytime"}</p>
+        <div class="checkout-summary">
+          <div><span class="muted">Hacker Pro (${yearly ? "12 months" : "1 month"})</span><span class="mono">${money(yearly ? 228 : 19)}</span></div>
+          ${yearly ? `<div><span class="muted">Yearly discount</span><span class="mono accent">−$48</span></div>` : ""}
+          <div class="total"><span>Total today</span><b>${money(price)}</b></div>
+        </div>
+        <form id="proForm" style="margin-top:18px;display:grid;gap:12px">
+          <button class="btn btn-primary btn-block btn-lg" type="submit">Upgrade for ${money(price)}</button>
+          <p class="demo-note">Demo checkout — no payment is taken.</p>
+        </form>`);
+      $("#proForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        HC.store.set("user", { ...HC.user(), plan: "pro", proSince: Date.now() });
+        HC.closeModal();
+        HC.toast("Welcome to <b>Hacker Pro</b>! Contests are now free for you.");
+        setTimeout(() => location.reload(), 1200);
+      });
+    }));
+
+    // Calculator
+    function calc() {
+      const p = +$("#rP").value, f = +$("#rF").value, s = +$("#rS").value;
+      const gross = p * f, pool = Math.round((gross * s) / 100);
+      const platform = Math.round(gross * (100 - s) * 0.65 / 100), infra = gross - pool - platform;
+      $("#vP").textContent = p.toLocaleString(); $("#vF").textContent = money(f); $("#vS").textContent = s + "%";
+      $("#pool").textContent = money(pool);
+      $("#poolSplit").textContent = `from ${money(gross)} in entry fees · 1st place ≈ ${money(Math.round(pool * 0.5))}`;
+      const sp = $("#split").children;
+      sp[0].style.width = s + "%"; sp[1].style.width = (platform / gross) * 100 + "%"; sp[2].style.width = (infra / gross) * 100 + "%";
+    }
+    ["#rP", "#rF", "#rS"].forEach((id) => $(id).addEventListener("input", calc));
+    calc();
+
+    $("#hostForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = new FormData(e.target).get("name");
+      $("#hostMsg").textContent = `> thanks, ${name.split(" ")[0]} — we'll reply within 1 business day.`;
+      e.target.reset();
+    });
+
+    renderPro();
+    document.addEventListener("hc:change", renderPro);
+    HC.reveal(".plan");
+  })();
+  </script>
+</body>
+</html>

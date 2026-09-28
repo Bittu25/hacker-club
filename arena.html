@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arena — Hacker Club</title>
+  <meta name="description" content="Solve coding problems in the browser with instant judging." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+</head>
+<body data-page="arena" class="arena-page">
+  <header id="site-header"></header>
+  <main>
+    <div class="arena-bar">
+      <div class="title" id="arenaTitle"></div>
+      <span class="spacer"></span>
+      <span class="arena-score" id="arenaScore"></span>
+      <span class="arena-timer" id="arenaTimer" title="Time">00:00:00</span>
+    </div>
+    <div class="arena">
+      <section class="arena-left">
+        <div class="prob-tabs" id="probTabs"></div>
+        <div class="prob-body" id="probBody"></div>
+      </section>
+      <section class="arena-right">
+        <div class="editor-bar">
+          <select class="select" id="lang" aria-label="Language">
+            <option value="javascript">JavaScript (Node 20)</option>
+            <option value="python">Python 3.12</option>
+            <option value="cpp">C++ 20</option>
+            <option value="java">Java 21</option>
+          </select>
+          <button class="btn btn-ghost btn-sm" id="resetCode" title="Reset to starter code">↺ Reset</button>
+          <span class="hint"><kbd>Ctrl</kbd>+<kbd>↵</kbd> run · <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>↵</kbd> submit</span>
+        </div>
+        <div class="editor">
+          <div class="gutter" id="gutter">1</div>
+          <div class="code-wrap">
+            <pre aria-hidden="true"><code id="hl"></code></pre>
+            <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Code editor"></textarea>
+          </div>
+        </div>
+        <div class="console">
+          <div class="console-bar">
+            <div class="tabs" style="padding:3px">
+              <button class="tab active" data-ctab="result">Result</button>
+              <button class="tab" data-ctab="subs">Submissions</button>
+            </div>
+            <span class="spacer"></span>
+            <button class="btn btn-outline btn-sm" id="runBtn">▶ Run</button>
+            <button class="btn btn-primary btn-sm" id="submitBtn">Submit</button>
+          </div>
+          <div class="console-body" id="consoleBody"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/arena.js"></script>
+</body>
+</html>

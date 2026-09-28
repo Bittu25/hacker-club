@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contests — Hacker Club</title>
+  <meta name="description" content="Browse live, upcoming and past coding contests on Hacker Club. Filter by level, category and prize." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+</head>
+<body data-page="contests">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumbs"><a href="index.html">home</a><span>/</span>contests</p>
+        <h1>Coding contests</h1>
+        <p class="sub">Timed challenges with hidden tests, instant verdicts and a live leaderboard. Register, compete from anywhere and win cash prizes. Times are shown in <b id="tzName"></b>.</p>
+        <div class="stats" style="margin-top:26px" id="contestStats"></div>
+      </div>
+    </section>
+
+    <section class="section sm">
+      <div class="container">
+        <div class="filters">
+          <label class="search"><input class="input" id="q" type="search" placeholder="Search contests…" aria-label="Search contests" /></label>
+          <select class="select" id="category" aria-label="Category"><option value="all">All categories</option></select>
+          <select class="select" id="sort" aria-label="Sort">
+            <option value="soon">Starting soonest</option>
+            <option value="prize">Highest prize</option>
+            <option value="fee">Lowest entry fee</option>
+            <option value="popular">Most popular</option>
+          </select>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+          <div class="tabs" id="statusTabs"></div>
+          <div class="chips" id="levelChips">
+            <button class="chip active" data-level="all">All levels</button>
+            <button class="chip" data-level="beginner">Beginner</button>
+            <button class="chip" data-level="intermediate">Intermediate</button>
+            <button class="chip" data-level="expert">Expert</button>
+          </div>
+        </div>
+        <div class="results-bar"><span id="resultCount"></span><button class="btn btn-ghost btn-sm" id="reset">Reset filters</button></div>
+        <div class="cards" id="grid"></div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <p class="eyebrow center">// scoring</p>
+        <h2 class="center">How contests are scored</h2>
+        <div class="features">
+          <div class="feature"><div class="ficon">✔</div><h3>Points per problem</h3><p>Each problem is worth points based on difficulty. Harder problems are worth more.</p></div>
+          <div class="feature"><div class="ficon">⏱</div><h3>Time &amp; penalty</h3><p>Ties are broken by total solve time. Each wrong submission adds a 5‑minute penalty.</p></div>
+          <div class="feature"><div class="ficon">★</div><h3>Rating changes</h3><p>After every rated contest, your rating goes up or down based on your rank vs. expectations.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/contests.js"></script>
+</body>
+</html>

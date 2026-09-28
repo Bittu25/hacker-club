@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard — Hacker Club</title>
+  <meta name="description" content="Global Hacker Club rankings: top competitive programmers by rating, season points and winnings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+</head>
+<body data-page="leaderboard">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumbs"><a href="index.html">home</a><span>/</span>leaderboard</p>
+        <h1>Global leaderboard</h1>
+        <p class="sub">The best competitive programmers on Hacker Club. Ratings update after every rated contest.</p>
+      </div>
+    </section>
+    <section class="section sm">
+      <div class="container">
+        <div class="lb-podium" id="podium"></div>
+        <div class="detail-grid" style="padding-top:0">
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+              <div class="tabs" id="periodTabs">
+                <button class="tab active" data-period="rating">All-time rating</button>
+                <button class="tab" data-period="season">Season 1</button>
+                <button class="tab" data-period="month">This month</button>
+                <button class="tab" data-period="winnings">Winnings</button>
+              </div>
+              <button class="btn btn-outline btn-sm hidden" id="jumpMe">★ Jump to me</button>
+            </div>
+            <div class="filters" style="grid-template-columns:1fr auto">
+              <label class="search"><input class="input" id="q" type="search" placeholder="Search hackers…" aria-label="Search hackers" /></label>
+              <select class="select" id="country" aria-label="Country"><option value="all">🌍 All countries</option></select>
+            </div>
+            <div class="table-wrap">
+              <table class="lb">
+                <thead><tr><th>#</th><th>Hacker</th><th>Country</th><th id="metricHead">Rating</th><th>Contests</th><th>Solved</th><th>Winnings</th></tr></thead>
+                <tbody id="body"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="pager"></div>
+          </div>
+          <aside class="sidebar">
+            <div class="panel">
+              <h3>Top countries</h3>
+              <div class="bars" id="countries"></div>
+            </div>
+            <div class="panel">
+              <h3>Rating tiers</h3>
+              <div class="bars" id="tiers"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/leaderboard.js"></script>
+</body>
+</html>
